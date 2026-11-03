@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Blurred cover art fills the background -->
+  <div class="backdrop" id="backdrop"></div>
+
+  <header class="topbar">
+    <h2>Music Player</h2>
+    <aside class="right">
+    <button class="menubar-btn" id="maximize-btn">□</button>
+    <button class="menubar-btn" id="minimize-btn">−</button>
+    <button class="menubar-btn" id="close-btn">✕</button>
+    </aside>
+  </header>
+
+  <main class="player">
+    <!-- One track at a time -->
+    <section class="stage">
+      <button class="nav-btn" id="prev" aria-label="Previous track">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+
+      <div class="carousel" id="carousel">
+        <!-- the current card is injected here -->
+      </div>
+
+      <button class="nav-btn" id="next" aria-label="Next track">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- Track info + controls -->
+    <section class="now-playing">
+      <img id="npCover" class="np-cover" src="" alt="" hidden>
+      <div id="npTitle" class="np-title">No track selected</div>
+      <div id="npArtist" class="np-artist">Add some music to get started</div>
+
+      <div class="progress-row">
+        <span id="current">0:00</span>
+        <input type="range" id="seek" min="0" max="100" value="0" step="0.1">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="prevTrack" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><path class="fill" d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+        </button>
+        <button id="playBtn" class="play-btn" disabled aria-label="Play">
+          <svg id="playIcon" viewBox="0 0 24 24"><path class="fill" d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button id="nextTrack" aria-label="Next">
+          <svg viewBox="0 0 24 24"><path class="fill" d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>
+        </button>
+      </div>
+
+      <div class="meta-row">
+        <span id="counter" class="counter">0 / 0</span>
+        <span id="upNext" class="up-next"></span>
+      </div>
+    </section>
+  </main>
+
+  <audio id="audio"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
